@@ -1,5 +1,7 @@
 # Testing in Python
-**Austin Dial (June 2020)**
+**Austin Dial (June 2020)** 
+
+[![CircleCI](https://circleci.com/gh/Adial314/udemy-testing-in-python.svg?style=svg)](https://circleci.com/gh/Adial314/udemy-testing-in-python)
 
 Storage for all work completed throughout taking the Testing in Python course on Udemy. This course was taught by Noah Gift and Alfredo Deza in June of 2020. I took this course to develop superior testing protocols and platforms for Avri.io.
 
