@@ -12,8 +12,11 @@ jobs:
       - python/install-deps
       - python/save-cache
       - run:
-          command: ./manage.py test
-          name: Test
+          name: 
+          command: |
+            make setup
+            source ~/.udemy/bin/activate
+            make all
 
 workflows:
   main:
