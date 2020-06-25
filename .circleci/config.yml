@@ -1,4 +1,4 @@
-version: 2.1
+version: 1.0
 
 orbs:
   python: circleci/python@0.2.1
@@ -7,13 +7,9 @@ jobs:
   build-and-test:
     executor: python/default
     steps:
-      - checkout
-      - python/load-cache
-      - python/install-deps
-      - python/save-cache
       - run:
-          command: ./manage.py test
-          name: Test
+          command: Make all
+          name: Test deployment
 
 workflows:
   main:
