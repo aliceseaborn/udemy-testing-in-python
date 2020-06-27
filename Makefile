@@ -10,6 +10,6 @@ test:
 	#python -m pytest --nbval notebook.ipynb
 	
 lint:
-	pylint --disable=R,C *.py
+	pylint --disable=R,C */*.py
 	
 all: install lint
