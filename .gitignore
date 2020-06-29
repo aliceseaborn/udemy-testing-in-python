@@ -1,2 +1,5 @@
 # Ignore egg files
 *.egg*
+
+# Ignore python cache files
+**/__pycache__*
