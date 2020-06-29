@@ -1,2 +1,0 @@
-# Collect all tests in directory and subdirectories
-pytest --collect-only
