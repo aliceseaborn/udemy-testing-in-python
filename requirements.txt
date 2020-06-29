@@ -1,6 +1,6 @@
 pylint
-pylint-cov
 pytest
+pytest-cov
 pytest-html
 pandas
 numpy
