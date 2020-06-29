@@ -16,8 +16,6 @@ def string_to_integer(value):
         number = int(value)
     except ValueError:
         number = "Error."
-    finally:
-        number = "Undefined"
         
     return number
     
@@ -29,8 +27,6 @@ def int_to_float(value):
         number = float(value)
     except ValueError:
         number = "Error."
-    finally:
-        number = "Undefined"
         
     return number
 
