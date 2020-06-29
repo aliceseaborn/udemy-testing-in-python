@@ -46,3 +46,7 @@ def check_registrants(name):
     except TypeError:
         return "Error."
 
+
+def uncovered_function(param):
+    """A function which is not covered by a test. This should show up during coverage testing."""
+    print(f"Hello {param}!")
