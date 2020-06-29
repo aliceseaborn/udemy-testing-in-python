@@ -14,21 +14,25 @@ def string_to_integer(value):
     
     try:
         number = int(value)
-    except:
+    except ValueError:
         number = "Error."
     finally:
-        return number
+        number = "Undefined"
         
+    return number
+    
     
 def int_to_float(value):
     """Convert an integer to a float. If impossible, return 'Error.'"""
     
     try:
         number = float(value)
-    except:
+    except ValueError:
         number = "Error."
     finally:
-        return number
+        number = "Undefined"
+        
+    return number
 
 
 def check_registrants(name):
@@ -43,5 +47,5 @@ def check_registrants(name):
             return 1
         else:
             return 0
-    except:
+    except TypeError:
         return "Error."
