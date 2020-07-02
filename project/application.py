@@ -1,4 +1,4 @@
-# Hello
+# Application
 # Austin Dial
 # Jun 26, 2020
 #
@@ -11,12 +11,12 @@
 
 def string_to_integer(value):
     """Convert a string to an integer. If impossible, return 'Error.'"""
-
+    
     try:
         number = int(value)
     except ValueError:
         number = "Error."
-
+    
     return number
 
 
@@ -48,5 +48,7 @@ def check_registrants(name):
 
 
 def uncovered_function(param):
-    """A function which is not covered by a test. This should show up during coverage testing."""
+    """A function which is not covered by a test. This should show up during
+        coverage testing."""
     print(f"Hello {param}!")
+
