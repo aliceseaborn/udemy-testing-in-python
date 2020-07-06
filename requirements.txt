@@ -1,7 +1,9 @@
+# Linting and formatting
 pylint
+black
+
+# Pytest and plugins
 pytest
 pytest-cov
 pytest-html
-pandas
-numpy
-black
+
