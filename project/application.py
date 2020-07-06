@@ -5,6 +5,11 @@
 #   Contains functions for testing.
 #
 
+# -------------------- IMPORT MODULES -------------------- #
+
+import requests
+
+
 
 # -------------------- DEFINE FUNCTIONS -------------------- #
 
@@ -54,6 +59,8 @@ def uncovered_function(param):
 
 
 def string_to_bool(value):
+    """Converts string values to native boolean states in Python."""
+    
     true_vals = ['yes', 'y', '', '1']
     false_vals = ['no', 'n', '0']
     try:
@@ -66,3 +73,18 @@ def string_to_bool(value):
         return False
     else:
         raise ValueError("Invalid input value: %s" % value)
+
+
+def connect_to_api(endpoint):
+    """Connects to an API and returns the response data."""
+    
+    # Form and call api
+    url = "https://jsonplaceholder.typicode.com/posts/{}".format(endpoint)
+    response = requests.get(url)
+    
+    # Handle response
+    if response.status_code >= 400:
+        return False
+    else:
+        return response.json()
+

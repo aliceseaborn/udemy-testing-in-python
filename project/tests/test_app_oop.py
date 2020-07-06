@@ -112,6 +112,21 @@ class TestChecks(object):
         # Test something which is meant to work successfully
         result = app.check_registrants("Sally")
         assert result == 1
+        
+        
+class TestAPI(object):
+
+    # Define a test for one specific function
+    def test_connect_to_api(self):
+        """Test the connect_to_api function within app module."""
+        
+        # Test something which is meant to throw an error
+        result = app.connect_to_api(5000)
+        assert result == False
+        
+        # Test something which is meant to work successfully
+        result = app.connect_to_api(5)
+        assert isinstance(result, dict)
 
 
 # Demonstrate how many tests can be combined into one through
