@@ -52,3 +52,17 @@ def uncovered_function(param):
         coverage testing."""
     print(f"Hello {param}!")
 
+
+def string_to_bool(value):
+    true_vals = ['yes', 'y', '', '1']
+    false_vals = ['no', 'n', '0']
+    try:
+        value = value.lower()
+    except AttributeError:
+        value = str(value).lower()
+    if value in true_vals:
+        return True
+    elif value in false_vals:
+        return False
+    else:
+        raise ValueError("Invalid input value: %s" % value)
