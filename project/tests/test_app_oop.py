@@ -43,16 +43,20 @@
 
 # FROM top_hierarchy import module.function
 # from project.app import string_to_integer
+from project import application as app
 
 # IMPORT top_hierachy.module as module
-import project.app as app
+# import project.app as app
+
+# Pytest tools
+import pytest
 
 
 
 # -------------------- DEFINE TESTS -------------------- #
 
 
-class TestConverters:
+class TestConverters(object):
     
     # Define the setup function
     def setup(self):
@@ -95,7 +99,7 @@ class TestConverters:
         assert result == 5.0
 
     
-class TestChecks:
+class TestChecks(object):
 
     # Define a test for one specific function
     def test_check_registrants(self):
@@ -108,3 +112,45 @@ class TestChecks:
         # Test something which is meant to work successfully
         result = app.check_registrants("Sally")
         assert result == 1
+        
+        
+# Define a setup function
+@pytest.fixture
+def setup_entry():
+    title = "testing title"
+    body = "this is a testing\nbody for an api\ncall."
+    
+    keys = ["title", "body"]
+    values = [title, body]
+    
+    return dict(zip({keys : values}))
+
+
+# Demonstrate how to test a function which connects to an API
+#   using conventional methods as well as fixtures.
+class TestAPI(object):
+
+    # Test the API call itself
+    def test_connect_to_api(self):
+        """Test the connect_to_api function within app module."""
+        
+        # Test something which is meant to throw an error
+        result = app.connect_to_api(5000)
+        assert result == False
+        
+        # Test something which is meant to work successfully
+        result = app.connect_to_api(5)
+        assert isinstance(result, dict)
+
+
+# Demonstrate how many tests can be combined into one through
+#   the process of parameterization.
+class TestStringToBool(object):
+    
+    @pytest.mark.parametrize('user_input', ['Y', 'y', 'YES', 'yes', '1'])
+    def test_true_values(self, user_input):
+        assert app.string_to_bool(user_input) is True
+        
+    @pytest.mark.parametrize('user_input', ['N', 'n', 'NO', 'no', '0'])
+    def test_false_values(self, user_input):
+        assert app.string_to_bool(user_input) is False
