@@ -114,9 +114,23 @@ class TestChecks(object):
         assert result == 1
         
         
+# Define a setup function
+@pytest.fixture
+def setup_entry():
+    title = "testing title"
+    body = "this is a testing\nbody for an api\ncall."
+    
+    keys = ["title", "body"]
+    values = [title, body]
+    
+    return dict(zip({keys : values}))
+
+
+# Demonstrate how to test a function which connects to an API
+#   using conventional methods as well as fixtures.
 class TestAPI(object):
 
-    # Define a test for one specific function
+    # Test the API call itself
     def test_connect_to_api(self):
         """Test the connect_to_api function within app module."""
         
