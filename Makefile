@@ -13,4 +13,7 @@ lint:
 	black */*.py
 	pylint --disable=R,C */*.py
 	
-all: install lint
+all: setup 	\
+	install	\
+	test 	\
+	lint
