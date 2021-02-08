@@ -10,18 +10,17 @@
 import requests
 
 
-
 # -------------------- DEFINE FUNCTIONS -------------------- #
 
 
 def string_to_integer(value):
     """Convert a string to an integer. If impossible, return 'Error.'"""
-    
+
     try:
         number = int(value)
     except ValueError:
         number = "Error."
-    
+
     return number
 
 
@@ -54,15 +53,15 @@ def check_registrants(name):
 
 def uncovered_function(param):
     """A function which is not covered by a test. This should show up during
-        coverage testing."""
+    coverage testing."""
     print(f"Hello {param}!")
 
 
 def string_to_bool(value):
     """Converts string values to native boolean states in Python."""
-    
-    true_vals = ['yes', 'y', '', '1']
-    false_vals = ['no', 'n', '0']
+
+    true_vals = ["yes", "y", "", "1"]
+    false_vals = ["no", "n", "0"]
     try:
         value = value.lower()
     except AttributeError:
@@ -77,11 +76,11 @@ def string_to_bool(value):
 
 def connect_to_api(endpoint):
     """Connects to an API and returns the response data."""
-    
+
     # Form and call api
     url = "https://jsonplaceholder.typicode.com/posts/{}".format(endpoint)
     response = requests.get(url)
-    
+
     # Handle response
     if response.status_code >= 400:
         return False
@@ -91,29 +90,29 @@ def connect_to_api(endpoint):
 
 def print_entry(entry):
     """Prints the title and body of the API entry."""
-    
+
     # Local printing preferences
     total_length = 60
     left_ending = "|-----"
-    ending_length = len(left_ending)+1
+    ending_length = len(left_ending) + 1
     right_ending = left_ending[::-1]
-    
+
     # Parse out values
-    title = entry['title']
-    body = entry['body']
-    length = len(entry['title'])
-    
+    title = entry["title"]
+    body = entry["body"]
+    length = len(entry["title"])
+
     # Truncate strings which are too long
     if len(title) > 21:
         title = title[:21] + "..."
-        
+
     # Truncate strings with odd numbered length
-    if length%2 != 0:
-        title[:length - 2] + "..."
-        
+    if length % 2 != 0:
+        title = title[: length - 2] + "..."
+
     # Try pretty printing the header
-    n = int((total_length - 2*ending_length - len(title)) / 2)
-    print(left_ending + n*"-" + " " + title + " " + n*"-" + right_ending)
-    
+    n = int((total_length - 2 * ending_length - len(title)) / 2)
+    print(left_ending + n * "-" + " " + title + " " + n * "-" + right_ending)
+
     # Try printing the body of the entry
     print(body)
